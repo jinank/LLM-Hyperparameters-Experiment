@@ -1,20 +1,26 @@
-# 🎛️ LLM Hyperparameters Experiment
+# LLM Hyperparameters Experiment
 
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/streamlit-1.25-orange)](https://streamlit.io/)
-[![License](https://img.shields.io/github/license/yourusername/llm-hyperparam-expt)](LICENSE)
-[![CI](https://github.com/yourusername/llm-hyperparam-expt/actions/workflows/python-app.yml/badge.svg)](.github/workflows/python-app.yml)
+**A Streamlit app to run factorial experiments on LLM sampling hyperparameters and analyze readability via Flesch Reading Ease.**
 
-An interactive Streamlit dashboard to systematically study how LLM sampling hyperparameters (Temperature, Top-k, Top-p) affect output readability (Flesch Reading Ease).  
-Backed by a full factorial design, ANOVA, diagnostic plots, and publication-quality interaction/box plots.
+## Features
+- Configure Temperature, Top-p, Top-k, and replicates from the sidebar  
+- Automated runs against OpenAI API (gpt-4o-mini)  
+- Collects outputs, computes Flesch scores, fits three-way ANOVA  
+- Diagnostic plots and interaction/box plots  
 
-## 🚀 Demo
+## Quickstart
 
-👉 Live demo: https://llm-performance-experiment.streamlit.app/
+```bash
+git clone https://github.com/your-username/llm-hyperparam-expt.git
+cd llm-hyperparam-expt
+pip install -r requirements.txt
+export OPENAI_API_KEY=<your_api_key>
+streamlit run streamlit_app.py
+```
 
-## 🔧 Installation
+## Docker
 
-1. **Clone**
-   ```bash
-   git clone https://github.com/yourusername/llm-hyperparam-expt.git
-   cd llm-hyperparam-expt
+```bash
+docker build -t llm-expt .
+docker run -e OPENAI_API_KEY=<key> -p 8501:8501 llm-expt
+```
